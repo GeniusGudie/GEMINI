@@ -5,19 +5,22 @@ import { motion } from 'framer-motion';
 const QuickWins = () => {
     const wins = [
         {
-            icon: <Zap size={32} className="text-gold" />,
-            title: "Reactivate Orphans",
-            description: "Turn neglected databases into active transfers in weeks, not months."
+            icon: <Zap size={28} className="text-purple-400" />,
+            stat: "$125,000",
+            title: "Lost Revenue at Risk",
+            description: "Average small business loses this annually to missed calls and slow follow-ups."
         },
         {
-            icon: <TrendingUp size={32} className="text-gold" />,
-            title: "Boost Commissions",
-            description: "Increase your revenue by 20-50% with automated SMS outreach."
+            icon: <TrendingUp size={28} className="text-purple-400" />,
+            stat: "99%",
+            title: "AI Prevents Missed Calls",
+            description: "Ensure every potential customer gets an immediate, professional response."
         },
         {
-            icon: <Clock size={32} className="text-gold" />,
-            title: "Save Time",
-            description: "Scale your brokerage with add-ons like fresh leads and 24/7 support."
+            icon: <Clock size={28} className="text-purple-400" />,
+            stat: "98%",
+            title: "Customer Satisfaction",
+            description: "Give callers the instant attention they expect and deserve, 24/7."
         }
     ];
 
@@ -31,9 +34,9 @@ const QuickWins = () => {
 
             <div className="container relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Quick Wins for Your Brokerage</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Stop Letting Missed Calls <br /><span className="text-purple-400">Cost You Thousands</span></h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
-                        Immediate impact on your bottom line with our AI-driven approach.
+                        Turn every missed call into a revenue opportunity with our AI receptionist.
                     </p>
                 </div>
 
@@ -45,13 +48,14 @@ const QuickWins = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="glass-card p-8 rounded-xl border border-gray-800 hover:border-gold/30 transition-all duration-300"
+                            className="bg-dark-card p-8 rounded-xl border border-gray-800 hover:border-purple-500/30 transition-all duration-300 text-center"
                         >
-                            <div className="bg-dark/50 w-16 h-16 rounded-full flex items-center justify-center mb-6 border border-gray-800">
+                            <div className="w-16 h-16 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-6">
                                 {win.icon}
                             </div>
-                            <h3 className="text-xl font-bold mb-3 text-white">{win.title}</h3>
-                            <p className="text-gray-400 leading-relaxed">
+                            <h3 className="text-3xl font-bold text-red-500 mb-2">{win.stat}</h3>
+                            <h4 className="text-lg font-semibold text-white mb-3">{win.title}</h4>
+                            <p className="text-gray-400 text-sm leading-relaxed">
                                 {win.description}
                             </p>
                         </motion.div>

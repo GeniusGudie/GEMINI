@@ -33,8 +33,9 @@ const ProcessSection = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                             className="md:w-1/2"
+                            style={{ width: '100%' }}
                         >
-                            <div className="inline-block px-3 py-1 mb-4 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium">
+                            <div className="section-label bg-purple-500-10 border border-purple-500-20 text-purple-400">
                                 {step.subtitle}
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
@@ -46,7 +47,7 @@ const ProcessSection = () => {
                             <ul className="space-y-4 mb-8">
                                 {step.features.map((feature, i) => (
                                     <li key={i} className="flex items-center text-gray-300">
-                                        <CheckCircle className="text-purple-500 mr-3" size={20} />
+                                        <CheckCircle className="text-purple-500 mr-3 flex-shrink-0" size={20} />
                                         {feature}
                                     </li>
                                 ))}
@@ -63,20 +64,32 @@ const ProcessSection = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                             className="md:w-1/2 relative"
+                            style={{ width: '100%' }}
                         >
-                            <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-blue-600/20 rounded-2xl blur-2xl -z-10"></div>
-                            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-dark-secondary">
-                                <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent z-10"></div>
-                                <img src={step.image} alt={step.title} className="w-full h-auto object-cover opacity-80 hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 rounded-2xl blur-2xl" style={{
+                                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%)',
+                                zIndex: -1
+                            }}></div>
+                            <div className="relative rounded-2xl overflow-hidden border border-white-10 shadow-2xl bg-dark-secondary">
+                                <div className="absolute inset-0 z-10" style={{
+                                    background: 'linear-gradient(to top, var(--color-dark) 0%, transparent 50%, transparent 100%)'
+                                }}></div>
+                                <img src={step.image} alt={step.title} className="w-full h-auto opacity-80 hover:opacity-100 transition-opacity duration-500" style={{ objectFit: 'cover' }} />
 
                                 {/* Floating UI Element Mockup */}
-                                <div className="absolute bottom-6 left-6 right-6 p-4 bg-dark/80 backdrop-blur-md border border-white/10 rounded-xl z-20 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                                <div className="absolute p-4 border border-white-10 rounded-xl z-20 backdrop-blur-md transition-transform" style={{
+                                    bottom: '1.5rem',
+                                    left: '1.5rem',
+                                    right: '1.5rem',
+                                    backgroundColor: 'rgba(15, 15, 15, 0.8)',
+                                    transform: 'translateY(0.5rem)'
+                                }}>
                                     <div className="flex items-center justify-between mb-2">
-                                        <div className="h-2 w-24 bg-gray-600 rounded"></div>
-                                        <div className="h-2 w-8 bg-green-500 rounded"></div>
+                                        <div className="rounded" style={{ height: '0.5rem', width: '6rem', backgroundColor: 'var(--color-gray-600)' }}></div>
+                                        <div className="rounded" style={{ height: '0.5rem', width: '2rem', backgroundColor: 'var(--color-green-500)' }}></div>
                                     </div>
-                                    <div className="h-2 w-full bg-gray-700 rounded mb-2"></div>
-                                    <div className="h-2 w-2/3 bg-gray-700 rounded"></div>
+                                    <div className="rounded mb-2" style={{ height: '0.5rem', width: '100%', backgroundColor: 'var(--color-gray-700)' }}></div>
+                                    <div className="rounded" style={{ height: '0.5rem', width: '66%', backgroundColor: 'var(--color-gray-700)' }}></div>
                                 </div>
                             </div>
                         </motion.div>

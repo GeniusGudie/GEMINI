@@ -1,84 +1,104 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
+
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const offset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     return (
-        <footer className="bg-dark-secondary pt-16 pb-8 border-t border-gray-800">
+        <footer className="bg-dark-secondary border-t border-white-10 py-16">
             <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                    {/* Brand Column */}
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                    {/* Brand */}
                     <div>
-                        <Link to="/" className="text-2xl font-bold text-white tracking-tighter mb-6 block">
+                        <button
+                            onClick={() => scrollToSection('home')}
+                            className="text-2xl font-bold text-white tracking-tighter mb-4 block cursor-pointer"
+                        >
                             Scale<span className="text-gold">whisper</span>
-                        </Link>
-                        <p className="text-gray-400 mb-6 leading-relaxed">
-                            Helping Canadian insurance brokers revive orphan home and auto policies with AI-driven automation.
+                        </button>
+                        <p className="text-gray-400 mb-6">
+                            24/7 AI Receptionist & Appointment Booking Automation.
                         </p>
-                        <div className="flex space-x-4">
-                            <a href="#" className="text-gray-400 hover:text-gold transition-colors">
-                                <Twitter size={20} />
-                            </a>
+                        <div className="flex gap-4">
                             <a href="#" className="text-gray-400 hover:text-gold transition-colors">
                                 <Linkedin size={20} />
                             </a>
                             <a href="#" className="text-gray-400 hover:text-gold transition-colors">
-                                <Instagram size={20} />
+                                <Twitter size={20} />
+                            </a>
+                            <a href="#" className="text-gray-400 hover:text-gold transition-colors">
+                                <Facebook size={20} />
                             </a>
                         </div>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-white font-bold mb-6 text-lg">Navigation</h4>
-                        <ul className="space-y-3">
-                            <li><Link to="/" className="text-gray-400 hover:text-gold transition-colors">Home</Link></li>
-                            <li><Link to="/about" className="text-gray-400 hover:text-gold transition-colors">About Us</Link></li>
-                            <li><Link to="/services" className="text-gray-400 hover:text-gold transition-colors">Services</Link></li>
-                            <li><Link to="/case-studies" className="text-gray-400 hover:text-gold transition-colors">Case Studies</Link></li>
-                            <li><Link to="/contact" className="text-gray-400 hover:text-gold transition-colors">Contact</Link></li>
-                        </ul>
+                        <h4 className="text-white font-bold mb-4">Quick Links</h4>
+                        <div className="flex flex-col space-y-3">
+                            <button onClick={() => scrollToSection('home')} className="text-gray-400 hover:text-white transition-colors text-left">Home</button>
+                            <button onClick={() => scrollToSection('about')} className="text-gray-400 hover:text-white transition-colors text-left">About Us</button>
+                            <button onClick={() => scrollToSection('services')} className="text-gray-400 hover:text-white transition-colors text-left">Services</button>
+                            <button onClick={() => scrollToSection('case-studies')} className="text-gray-400 hover:text-white transition-colors text-left">Case Studies</button>
+                        </div>
                     </div>
 
                     {/* Services */}
                     <div>
-                        <h4 className="text-white font-bold mb-6 text-lg">Services</h4>
-                        <ul className="space-y-3">
-                            <li className="text-gray-400">Orphan Reactivation</li>
-                            <li className="text-gray-400">AI + SMS Automation</li>
-                            <li className="text-gray-400">Policy Review Booking</li>
-                            <li className="text-gray-400">Lead Qualification</li>
-                            <li className="text-gray-400">24/7 Support</li>
-                        </ul>
+                        <h4 className="text-white font-bold mb-4">Services</h4>
+                        <div className="flex flex-col space-y-3">
+                            <a href="#" className="text-gray-400 hover:text-white transition-colors">Lead Generation</a>
+                            <a href="#" className="text-gray-400 hover:text-white transition-colors">AI Automation</a>
+                            <a href="#" className="text-gray-400 hover:text-white transition-colors">CRM Integration</a>
+                            <a href="#" className="text-gray-400 hover:text-white transition-colors">Consulting</a>
+                        </div>
                     </div>
 
                     {/* Contact */}
                     <div>
-                        <h4 className="text-white font-bold mb-6 text-lg">Contact Us</h4>
-                        <ul className="space-y-4">
-                            <li className="flex items-start">
-                                <Mail className="text-gold mr-3 mt-1 flex-shrink-0" size={18} />
-                                <span className="text-gray-400">info@scalewhisper.com</span>
-                            </li>
-                            <li className="flex items-start">
-                                <Phone className="text-gold mr-3 mt-1 flex-shrink-0" size={18} />
-                                <span className="text-gray-400">(123) 456-7890</span>
-                            </li>
-                            <li className="flex items-start">
-                                <MapPin className="text-gold mr-3 mt-1 flex-shrink-0" size={18} />
-                                <span className="text-gray-400">123 AI Gold St,<br />Toronto, ON, Canada</span>
-                            </li>
-                        </ul>
+                        <h4 className="text-white font-bold mb-4">Contact</h4>
+                        <div className="flex flex-col space-y-3">
+                            <a href="mailto:hello@scalewhisper.com" className="flex items-center text-gray-400 hover:text-white transition-colors">
+                                <Mail size={16} className="mr-2" />
+                                hello@scalewhisper.com
+                            </a>
+                            <a href="tel:+1234567890" className="flex items-center text-gray-400 hover:text-white transition-colors">
+                                <Phone size={16} className="mr-2" />
+                                (123) 456-7890
+                            </a>
+                            <div className="flex items-start text-gray-400">
+                                <MapPin size={16} className="mr-2 mt-1 flex-shrink-0" />
+                                <span>Toronto, ON, Canada</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                    <p className="text-gray-500 text-sm mb-4 md:mb-0">
-                        &copy; {new Date().getFullYear()} Scalewhisper. All rights reserved.
+                {/* Bottom Bar */}
+                <div className="border-t border-white-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-gray-500 text-sm">
+                        © {currentYear} Scalewhisper. All rights reserved.
                     </p>
-                    <div className="flex space-x-6 text-sm">
-                        <a href="#" className="text-gray-500 hover:text-gold transition-colors">Privacy Policy</a>
-                        <a href="#" className="text-gray-500 hover:text-gold transition-colors">Terms of Service</a>
+                    <div className="flex gap-6">
+                        <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">
+                            Privacy Policy
+                        </a>
+                        <a href="#" className="text-gray-500 hover:text-white text-sm transition-colors">
+                            Terms of Service
+                        </a>
                     </div>
                 </div>
             </div>

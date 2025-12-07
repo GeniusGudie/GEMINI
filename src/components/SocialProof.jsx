@@ -3,18 +3,18 @@ import { motion } from 'framer-motion';
 
 const SocialProof = () => {
     const logos = [
-        "BrokerLink", "Hub International", "NFP", "Gallagher", "Westland"
+        "BrokerLink", "Hub International", "NFP", "Gallagher", "Westland", "Intact"
     ];
 
     return (
-        <section className="py-20 border-y border-white/5 bg-dark-secondary/30">
+        <section className="py-20 border-t border-b border-white-10" style={{ backgroundColor: 'rgba(10, 10, 10, 0.3)' }}>
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row items-start justify-between gap-12">
 
                     {/* Text Content */}
-                    <div className="md:w-1/2">
+                    <div style={{ width: '100%', maxWidth: '50%' }} className="w-full">
                         <div className="flex items-center space-x-2 mb-6">
-                            <span className="w-8 h-[1px] bg-gold"></span>
+                            <span className="divider"></span>
                             <span className="text-xs font-bold tracking-widest uppercase text-gold">Proven Results</span>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
@@ -36,16 +36,17 @@ const SocialProof = () => {
                     </div>
 
                     {/* Logos / Visual */}
-                    <div className="md:w-1/2 w-full">
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                    <div style={{ width: '100%', maxWidth: '50%' }} className="w-full">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 transition-all duration-500" style={{ opacity: 0.5, filter: 'grayscale(100%)' }}>
                             {logos.map((logo, index) => (
-                                <div key={index} className="flex items-center justify-center h-24 border border-white/5 rounded-lg bg-white/5 hover:bg-white/10 hover:border-gold/20 transition-all">
+                                <div
+                                    key={index}
+                                    className="flex items-center justify-center border border-white-10 rounded-lg bg-white-5 hover:bg-white-10 transition-all"
+                                    style={{ height: '6rem', borderColor: 'rgba(255, 255, 255, 0.05)' }}
+                                >
                                     <span className="font-bold text-xl text-gray-300">{logo}</span>
                                 </div>
                             ))}
-                            <div className="flex items-center justify-center h-24 border border-white/5 rounded-lg bg-white/5 hover:bg-white/10 hover:border-gold/20 transition-all">
-                                <span className="font-bold text-xl text-gray-300">Intact</span>
-                            </div>
                         </div>
                     </div>
 

@@ -23,72 +23,66 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="w-full max-w-lg mx-auto">
-            <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+        <div className="card" style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <form onSubmit={handleSubmit}>
+                <div className="mb-6">
+                    <label className="block mb-2 font-semibold text-white">Full Name</label>
                     <input
                         type="text"
                         name="name"
                         required
-                        className="w-full bg-dark border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                         placeholder="John Doe"
                         value={formData.name}
                         onChange={handleChange}
                     />
                 </div>
 
-                <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                <div className="mb-6">
+                    <label className="block mb-2 font-semibold text-white">Email Address</label>
                     <input
                         type="email"
                         name="email"
                         required
-                        className="w-full bg-dark border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors"
                         placeholder="john@business.com"
                         value={formData.email}
                         onChange={handleChange}
                     />
                 </div>
 
-                <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">Business Niche</label>
+                <div className="mb-6">
+                    <label className="block mb-2 font-semibold text-white">Business Niche</label>
                     <select
                         name="niche"
                         required
-                        className="w-full bg-dark border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors appearance-none"
                         value={formData.niche}
                         onChange={handleChange}
                     >
-                        <option value="">Select your industry...</option>
-                        <option value="Solar">Solar</option>
-                        <option value="Roofing">Roofing</option>
-                        <option value="Real Estate">Real Estate</option>
-                        <option value="Med Spa">Med Spa</option>
-                        <option value="HVAC">HVAC</option>
-                        <option value="Other">Other</option>
+                        <option value="">Select your niche</option>
+                        <option value="personal">Personal Lines</option>
+                        <option value="commercial">Commercial Lines</option>
+                        <option value="both">Both</option>
                     </select>
                 </div>
 
-                <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">Database Size (Leads)</label>
+                <div className="mb-6">
+                    <label className="block mb-2 font-semibold text-white">Database Size</label>
                     <select
                         name="databaseSize"
                         required
-                        className="w-full bg-dark border border-gray-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors appearance-none"
                         value={formData.databaseSize}
                         onChange={handleChange}
                     >
-                        <option value="">Select list size...</option>
-                        <option value="<500">Less than 500</option>
-                        <option value="500-1000">500 - 1,000</option>
-                        <option value="1000-5000">1,000 - 5,000</option>
-                        <option value="5000+">5,000+</option>
+                        <option value="">Select database size</option>
+                        <option value="small">&lt; 1,000 leads</option>
+                        <option value="medium">1,000 - 5,000 leads</option>
+                        <option value="large">5,000 - 10,000 leads</option>
+                        <option value="xlarge">10,000+ leads</option>
                     </select>
                 </div>
 
-                <button type="submit" className="btn btn-primary w-full flex items-center justify-center py-4 text-lg">
-                    Request Demo <Send size={18} className="ml-2" />
+                <button type="submit" className="btn btn-primary w-full justify-center flex items-center text-lg py-4">
+                    Book Your Free Demo
+                    <Send size={20} className="ml-2" />
                 </button>
             </form>
         </div>
