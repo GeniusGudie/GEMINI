@@ -1,31 +1,30 @@
 import React from 'react';
-import Hero from './components/Hero';
-import Explainer from './components/Explainer';
-import Testimonials from './components/Testimonials';
-import FAQ from './components/FAQ';
-import ContactForm from './components/ContactForm';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import Services from './pages/Services';
+import CaseStudies from './pages/CaseStudies';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className="app">
-      <Hero />
-      <Explainer />
-      <Testimonials />
-      <FAQ />
-      <ContactForm />
-
-      <footer className="bg-dark-secondary" style={{ padding: '2rem 0', borderTop: '1px solid #333' }}>
-        <div className="container text-center">
-          <p style={{ color: '#888', marginBottom: '1rem' }}>
-            &copy; {new Date().getFullYear()} ROYA AI Systems. All rights reserved.
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem' }}>
-            <a href="#" style={{ color: '#666', textDecoration: 'none' }}>Privacy Policy</a>
-            <a href="#" style={{ color: '#666', textDecoration: 'none' }}>Terms of Service</a>
-          </div>
-        </div>
-      </footer>
-    </div>
+    <Router>
+      <div className="app flex flex-col min-h-screen">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
