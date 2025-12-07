@@ -1,35 +1,44 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
-  const scrollToContact = () => {
-    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="bg-dark section-padding" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
-      <div className="container">
-        <div className="text-center" style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <div className="text-gold mb-4" style={{ fontWeight: '600', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-            AI + SMS Lead Reactivation
-          </div>
-          <h1 className="mb-8" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: 'white' }}>
-            Reactivate Your Old Leads with <span className="text-gold">AI + SMS</span>
-          </h1>
-          <p className="mb-8" style={{ fontSize: '1.25rem', color: '#A0A0A0', lineHeight: '1.8' }}>
-            Get 10-30 Booked Appointments/Month without lifting a finger. We use AI to mine your dead leads for gold and split the profits 50/50.
-          </p>
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <button onClick={scrollToContact} className="btn btn-primary">
-              Book Your Free Demo <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
-            </button>
-            <button onClick={() => document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' })} className="btn btn-outline">
-              How It Works
-            </button>
-          </div>
-          <p className="mt-4" style={{ fontSize: '0.875rem', color: '#666' }}>
-            Zero Upfront Cost • Performance Based • No Tech Skills Needed
-          </p>
+    <section className="relative pt-32 pb-20 overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-dark-secondary to-dark -z-10"></div>
+
+      <div className="container mx-auto px-6">
+        <div className="max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8">
+              <span className="w-2 h-2 bg-gold rounded-full animate-pulse"></span>
+              <span className="text-sm text-gray-300 font-medium tracking-wide">AI-NATIVE AUTOMATION</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold leading-[1.1] tracking-tight mb-8 text-white">
+              The definitive AI growth partner for fast-moving <span className="text-gold">insurance brokers.</span>
+            </h1>
+
+            <p className="text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">
+              Revive orphan policies, automate outreach, and unlock hidden commissions without lifting a finger.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link to="/contact" className="btn btn-primary text-lg px-8 py-4 group">
+                Start Growth Engine
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+              </Link>
+              <Link to="/case-studies" className="btn btn-outline text-lg px-8 py-4">
+                View Case Studies
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
